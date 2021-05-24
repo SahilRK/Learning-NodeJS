@@ -1,0 +1,27 @@
+TO INSTALL OR UPDATE THE VERSION OF NODE
+1) Check if node is installed using
+node -v
+
+2) If node is installed then check if the "n" package is installed.
+npm list -g n
+
+3) Install n package using npm if you do not have it installed yet. -- Only if you havent installed "n" package manager
+$ sudo npm install -g n
+
+4) Then, you can update your Node.js to the version you want.
+(Use this command to install the stable node release.)
+$ sudo n stable
+(Use this command to install/update the latest node release.)
+$ sudo n latest
+(Use this command to install/update the latest LTS node release.)
+$ sudo n lts
+
+
+TO TEST AND RUN AND NODE BASED PROGRAMS, WE CAN USE THE REPL INTERACTIVE TERMINAL SHELL BY DOING THE BELOW
+1) Open a terminal and type "node". It looks like this.
+Welcome to Node.js v16.2.0(whichever is your version, that will show up. mine is 16.2.0)
+Type ".help" for more information.
+> 
+
+
+ 
