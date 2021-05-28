@@ -23,5 +23,6 @@ Welcome to Node.js v16.2.0(whichever is your version, that will show up. mine is
 Type ".help" for more information.
 > 
 
+KEY DIFFERENCES B/W JSON and Javascript
+1) JSON - The key and value in a file has to be within double quotes and not single quotes. Eg: {"name":"Sahil"}. Javascript - The key need not be compulsarily in double quotes and the value can be in single quotes.
 
- 

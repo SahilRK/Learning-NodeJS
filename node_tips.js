@@ -4,3 +4,32 @@
 //4) NodeJS uses an event-driven,non-blocking I/O that makes it lightweight and efficient. Non-blocking I/O means that the user can interact with the browser even when there is an I/O process happening in the background.
 //5) To run a simple node script, open the terminal and type node <the js file name>
 console.log(`Hey welcome to nodejs`);
+
+//NODE MODULE SYSTEM
+//6)To load in any module, we use the require function. The value returned from the require has to be stored in a variable to be used. const <varname> = require('<module name>')
+//7)When a module is loaded with require, and we try to access a variable from the other module or file, we cannot access it since the scope of the variables is limited only to their file. To counter this, we use a concept of node called module.exports. This defines what can be shared with other files. Whatever is assigned to module.exports, gets exported for other files to use.
+const name = "Sahil";
+module.exports = name
+
+//So in the file that requires this file, the name variable is returned back which can then we stored in a variable and accessed.
+
+//8) NPM: Inorder to use the to use all the packages from npm, we have to create a file to manage all the dependencies. We run the "npm init" command in the command line which creates a package.json file. 
+
+//9) Either add the node modules folder to .gitignore so that the node modules does not get pushed to git. Or delete the node modules while sharing it with others. This will ensure that the size of the package is reduced. The user can always run npm init to recreate the node modules folder which will create it from the packages mentioned in the package.json.
+
+//10) Installing packages globally: We install npm packages globally which dont need to be required into into the project. They give us commands that we can access directly from the terminal. We install packages globally as follows "npm install <package name>@<version> -g".
+
+//11) Nodemon: This package is installed globally using -g on npm install. nodemon is a tool that helps develop node.js based applications by automatically restarting the node application when file changes in the directory are detected. 
+
+//12) Node CL Arguments: The command line arguments in node is used to pass data to the file that node runs. It passes data to the process object in the following way - "node app.js Sahil". This data is stored in process.argv property(Argument vector) in the form of an array as follows
+[
+    '/usr/local/bin/node',
+    '/Users/HURRICANE/JavaScript/Learning-NodeJS/Notes-App/app.js',
+    'Sahil'
+]
+/* 
+Index1 is the path of the node executable 
+Index2 is the file running the process
+Index3 onwards the arguments passed can be accessed. Eg Sahil
+*/
+
