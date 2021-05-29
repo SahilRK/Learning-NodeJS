@@ -20,7 +20,7 @@ module.exports = name
 //10) Installing packages globally: We install npm packages globally which dont need to be required into into the project. They give us commands that we can access directly from the terminal. We install packages globally as follows "npm install <package name>@<version> -g".
 
 //11) Nodemon: This package is installed globally using -g on npm install. nodemon is a tool that helps develop node.js based applications by automatically restarting the node application when file changes in the directory are detected. 
-
+  
 //12) Node CL Arguments: The command line arguments in node is used to pass data to the file that node runs. It passes data to the process object in the following way - "node app.js Sahil". This data is stored in process.argv property(Argument vector) in the form of an array as follows
 [
     '/usr/local/bin/node',
@@ -33,3 +33,18 @@ Index2 is the file running the process
 Index3 onwards the arguments passed can be accessed. Eg Sahil
 */
 
+/*
+13) Important JSON methods and uses.
+    1) JSON.stringify(<js object>) - The stringify method is used to convert a normal JS object to a JSON object(String based object since in JSON all the key and properties have to be strings)
+    const bookJSON = JSON.stringify(book);
+    2) JSON.parse(<json object>) - The parse method is used to convert a JSON object to a normal JS object.
+    const bookJS = JSON.parse(bookJSON);
+
+14) FS methods that can be combined to write and read to and from JSON file.
+    1) fs.writeFileSync('file name','data to be written) - Data can be written to a file using this method. It creates the file if the file cannot be found.
+    fs.writeFileSync('1-json.json',bookJSON);
+    2)fs.readFileSync('<file name to be read>') - The file is read as buffer data which is NODEJS's way of representing binary data.
+    const dataBuffer = fs.readFileSync('1-json.json');
+    To convert this into JSON, we use the toString method.
+    const bufferToJSON = dataBuffer.toString();
+*/

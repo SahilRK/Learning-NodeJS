@@ -29,11 +29,29 @@ const notes = require('./notes.js');
 
 //We are going to perform tasks based on the 4 commands passed from the command line. We will use the command method to add 4 commands
 //1: Add
+/* properties and their description
+command: Add's a command which can be called from the CLI
+description: Add's a description for the command to describe what it does
+handler: The function to be performed when the add command is called
+builder: Used to add configurations to a command line argument. Eg title{ description: 'Adds what the title means', demandOption: true(configures whether this option is mandatory), type:'string'(configures what value should be passed or what is allowed for this property)}
+*/
 yargs.command({
     command: 'add',
     description: 'Adding item to the list',
-    handler: function(){
-        console.log('Adding item to the list')
+    builder: {
+        title:{
+            description: 'This is the Note title',
+            demandOption: true,
+            type: 'string'
+        },
+        body:{
+            description: 'This is the Note body',
+            demandOption: true,
+            type: 'string'
+        }
+    },
+    handler: function(argv){
+        notes.addNote(argv.title,argv.body);
     }
 })
 
@@ -41,8 +59,15 @@ yargs.command({
 yargs.command({
     command: 'remove',
     description: 'Removing item from the list',
-    handler: function(){
-        console.log('Remove item from the list')
+    builder:{
+        title:{
+            description:'This is the title of the note',
+            demandOption: true,
+            type: 'string'
+        }
+    },
+    handler: function(argv){
+        notes.removeNotes(argv.title)
     }
 })
 
@@ -64,4 +89,4 @@ yargs.command({
     }
 })
 
-console.log(yargs.argv);
+yargs.parse()
