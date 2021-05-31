@@ -1,4 +1,5 @@
 const fs = require('fs');
+const chalk = require('chalk');
 
 const getNotes = () => {
     return "Your notes..."
@@ -49,13 +50,13 @@ const removeNotes = (title) =>{
 
     if(noteIndex !== -1){
         notes.splice(noteIndex,1);
-        console.log(`Note with title ${title} has been removed successfully`);
+        console.log(chalk.green.inverse(`Note with title ${title} has been removed successfully`));
         
         //Restringify the formatted notes array to JSON and write back to file
         saveNotes(notes);
 
     }else{
-        console.log("Note requested to be deleted has not been found!");
+        console.log(chalk.red.inverse("Note requested to be deleted has not been found!"))
     }
 }
 
