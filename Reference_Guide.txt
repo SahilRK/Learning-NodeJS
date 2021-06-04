@@ -30,6 +30,10 @@ Welcome to Node.js v16.2.0(whichever is your version, that will show up. mine is
 Type ".help" for more information.
 > 
 
+TO INITIALISE AND INSTALL THE NPM PROJECT 
+1) npm init: This command initialises the project.json file if the file does not exist. If it exists then it installs the packages from the project.json file.
+Alternate: npm init -y: The -y option answers all the questions by default while creating a project.json file.
+
 KEY DIFFERENCES B/W JSON and Javascript
 1) JSON - The key and value in a file has to be within double quotes and not single quotes. Eg: {"name":"Sahil"}. Javascript - The key need not be compulsarily in double quotes and the value can be in single quotes.
 
@@ -115,8 +119,8 @@ SETTIMEOUT:
 setTimeOut is not a part of Javascript. V8 also has no implementation for it. NODEJS creates the implementation from C++ and provides it to use. It registers an event with NodeJS API.
 
 CALL STACK, CALLBACK QUEUE AND EVENT LOOP:
-1) Call Stack 
-//Is a simple DS provided by the V8 JS engine. The job of the call stack is to keep a track of the execution of the program by keeping track of all the functions that are being executed currently. 
+1) Call Stack
+//Is a simple DS provided by the V8 JS engine. The job of the call stack is to keep a track of the execution of the program by keeping track of all the functions that are being executed currently.
 //It works on the concept of FILO( First In Last Out).
 //When a program is executed by Node, it gets wrapper in a main() function by node in the background. This method is pushed to the call stack first. This is followed by all other functions that are called and they keep getting added on top of each other. So once they have finished getting executed, they are removed from the call stack.
 //Only functions are pushed to the call stack.
@@ -137,8 +141,18 @@ Application programming Interface is a technique of communicating with different
 API has the following properties.
 1) API key: This is an access key to safely communicate between two devices by authenticating the communication via the key.
 2) API Endpoints: These are the different URL's that the application provides to commuicate the data between two apps.
-3) Base URL: This is the URL that is common among all endpoints. 
+3) Base URL: This is the URL that is common among all endpoints.
 Eg: http://api.weatherstack.com
 4) Query String: This is a part of the URL that assigns a value to a parameter. It basically adds the fields and values that have to be passed to the Base URL.
 Eg: http://api.weatherstack.com?location=bengaluru&pincode=560024
 location=bengaluru&pincode=560024 - This is the query string
+5) Response: This is one of the main objects returned back from an HTTP request with all the values that the server responded with.
+On calling "response.body" we can access all the properties and values related to the response.
+
+
+Logins:
+Weatherstack: sahil.rordev@gmail.com
+Mapbox: sahilrk
+
+encodeURIComponent:
+encodeURIComponent(variable name) is used to convert the Special characters in the string to the encoded version which helps in including the special character and also helps in avoiding page crashes due to special characters in the URL.

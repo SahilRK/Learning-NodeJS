@@ -1,0 +1,14 @@
+{
+  "name": "weather_app_pack",
+  "version": "1.0.0",
+  "description": "Contains packages related to the weather app",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Sahil Kulkarni",
+  "license": "ISC",
+  "dependencies": {
+    "postman-request": "^2.88.1-postman.30"
+  }
+}
