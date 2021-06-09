@@ -156,3 +156,11 @@ Mapbox: sahilrk
 
 encodeURIComponent:
 encodeURIComponent(variable name) is used to convert the Special characters in the string to the encoded version which helps in including the special character and also helps in avoiding page crashes due to special characters in the URL.
+
+EXPRESS:
+It is the most popular web server for NodeJS which is used to serve data to users in the form of Web Applications or API's.
+We import express by require('express'). Since express returns a function, we have to call the function to create a web server.
+
+Directory structure to maintain for a node express app:
+/public : This folder serves all the public files such as html, css, images, documents
+//src: This folder serves all the core js files of the application
