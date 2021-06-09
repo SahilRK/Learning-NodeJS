@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-const arrChar = "1qaz!QAZ2wsx@WSX3edc#EDC4rfv$RFV5tg%TGB[6yhn^YHN7ujm&U]JM8ik,*IK<9ol.(ol.0p;/)p;\~"
+const arrChar = "1qaz!QAZ2wsx@WSX3edc#EDC4rfv$RFV5tg%TGB[6yhn^YHN7ujm&U]JM8ik,*IK<9ol\(ol.0p/)p"
 const arrSplit = arrChar.split("");
 const regexp = /[^a-zA-Z]/g;
 
@@ -25,10 +25,10 @@ function generateRandomPassword(passLength){
 
 }
 
-console.log(generateRandomPassword(15));
-/* for(i=0;i<=29;i++){
+//console.log(generateRandomPassword(15));
+for(i=0;i<=29;i++){
     fs.appendFileSync('passwords.txt',generateRandomPassword(15)+"\n");
-} */
+}
 
 
 
