@@ -3,6 +3,10 @@ const path = require('path');
 const express = require('express');
 const hbs = require('hbs');
 
+//IMPORT LOCAL LIBRARIES
+const geocode = require('./utils/geocode.js');
+const weather = require('./utils/forecast.js');
+
 //Since express returns back a function, we use call the express function and store it 
 const app = express();
 
@@ -41,8 +45,8 @@ app.use('/icons',express.static(bootstrapIconsDirPath));
 app.get('',(req,res)=>{
     //the render method is used to render dynamic web pages and pass values to it.
     res.render('index',{
-        title: "Home Page",
-        message: "Welcome to my homepage",
+        title: "Weather",
+        message: "Welcome to my weather app",
         pageIcon: "rainy"
     }) 
 })
@@ -60,12 +64,34 @@ app.get('/help',(req,res)=>{
     })
 })
 
-//let us set up another request handler called weather.
-
+//Weather forecast handler
 app.get('/weather',(req,res)=>{
-    res.send({
-        location: 'Bengaluru',
-        temperature: '27deg celsius'
+    if(!req.query.location){
+        return res.send({
+            error: "Please provide a city name."
+        })
+    }
+    geocode.getLocationDetails(req.query.location,(geocodeError,geocodeData) => {
+        if(geocodeError){
+            //if there is an error here, the function returns back from this point and the execution stops
+            return res.send({
+                error: geocodeError
+            });
+        }
+    
+        weather.getWeatherDetails(geocodeData.latitude,geocodeData.longitude,(forecastError,forecastData) => {
+            if(forecastError){
+                return res.send({
+                    error: forecastError
+                });
+            }
+            
+            res.send({
+                geocodeMessage: geocodeData.message,
+                forecastMessage: forecastData.message
+            });
+
+        });
     })
 })
 

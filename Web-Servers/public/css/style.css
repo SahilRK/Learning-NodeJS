@@ -1,8 +1,11 @@
-h1{
-    color: #ddd;
-}
-
 img{
     width: 250px;
     height: 250px;
+}
+
+.company-logo i{
+    font-size:25px;
+}
+.company-logo span{
+    font-size:20px;
 }
