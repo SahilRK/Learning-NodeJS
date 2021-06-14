@@ -171,15 +171,19 @@ app.get('<route path eg: </help>', (req,res)=> {
     //req is the request we receive when a particular url is accessed.
     //res is what we want to send back to the user/ or what the user wants to see
 
-    //METHODS ON REQ,RES
-    res.send('html or array or object'); is used to send a response back to the user
+    //METHODS ON RES
+    1) res.send('html or array or object'); is used to send a response back to the user
 
-    //res.render() is used to render a view which in our case is a handlebar template.
+    2) res.render() is used to render a view which in our case is a handlebar template.
     res.render('index',{
 
     }) 
     -- First parameter is the name of the view without the extension
     -- Second parameter is an object with the properties and values that we want to pass to the view to be used in the dynamic template.
+
+
+    //METHODS ON REQ
+    1) req.query: The query property returns back an object containing key-value parameters passed from the query string by the user. Eg: {search: "games", rating: "5"}
 })
 
 2) app.listen(port, callback):  is used to start the server. The callback is optional and is used to perform a task once the server is up and running.
@@ -205,3 +209,22 @@ Directory structure to maintain for a node express app:
 DYNAMIC PAGES using TEMPLATING ENGINES(HANDLEBAR):
 A template engine can be used to render dynamic web pages. This helps us create templates and reuse the code across the project.
 We use the hbs library to integrate handlebars in node. hbs expects the files to be in a specific "views" folder.
+
+ES6 Default Function Parameter Values:
+A default function parameter value ensures that we dont encounter an undesirable output such as a sudden error which is uncaught. The function parameter is assigned a default value and if the value is passed while calling the function then the default value is ignored. Eg
+function personDetails(name="Sahil",age=29){
+    console.log(`${name} -- ${age}`)
+}
+
+HEROKU:
+Heroku is a cloud application hosting platform that allows a user to host their applications on a public cloud to be accessed on the internet
+
+To Host an app, we first link the heroku account via cli to our heroku accounts using the cli tools
+1) heroku login: Allows us to login to our heroku account via the terminal
+2) heroku keys:add: Allows us to add our ssh key to heroku to deploy our code
+3) heroku create: Creates a heroku application. Make sure that this task is performed from our application directory. Eg: Web-Servers directory in this case which holds the weather app.
+4) To run an application in heroku, we configure our package.json "scripts" property to tell heroku which script to run. We can use this config locally as well. To run a script, we run the following. Add the start script in package.json by doing the following
+"scripts":{
+    "start": "node src/app.js"    
+}
+npm run <script name under scripts. eg start>
