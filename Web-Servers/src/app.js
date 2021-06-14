@@ -9,6 +9,7 @@ const weather = require('./utils/forecast.js');
 
 //Since express returns back a function, we use call the express function and store it 
 const app = express();
+const port = process.env.PORT || 3000;
 
 //SETUP PATHS FOR EXPRESS CONFIG
 //NodeJS provides us two important variables to access the current directory and file. __dirname(current directory) and __filename(current file).
@@ -111,7 +112,6 @@ app.get('*',(req,res) => {
 })
 
 //app.listen(port, callback) is used to start the server. The callback is optional and is used to perform a task once the server is up and running.
-app.listen(3000, ()=>{
-    console.log("Server is running at port 3000");
-    console.log(bootstrapIconsDirPath);
+app.listen(port, ()=>{
+    console.log("Server is running at port "+port);
 })

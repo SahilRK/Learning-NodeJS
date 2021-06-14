@@ -7,7 +7,7 @@ const error_message = document.querySelector("#location-error");
 weather_form.addEventListener('submit',(e) => {
     e.preventDefault();
 
-    fetch(`http://localhost:3000/weather?location=${search_value.value}`).then((response)=>{
+    fetch(`/weather?location=${search_value.value}`).then((response)=>{
         response.json().then((data)=>{
             if(data.error){
                 console.log(data.error);
